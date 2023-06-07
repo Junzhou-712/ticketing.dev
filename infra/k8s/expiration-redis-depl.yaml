@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: expiration-redis-depl
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: expiration-redis
@@ -12,8 +13,8 @@ spec:
         app: expiration-redis
     spec:
       containers:
-      - name: expiration-redis
-        image: redis
+        - name: expiration-redis
+          image: redis
 ---
 apiVersion: v1
 kind: Service
@@ -23,8 +24,7 @@ spec:
   selector:
     app: expiration-redis
   ports:
-  - name: db
-    protocol: TCP
-    port: 6379
-    targetPort: 6379
-
+    - name: db
+      protocol: TCP
+      port: 6379
+      targetPort: 6379

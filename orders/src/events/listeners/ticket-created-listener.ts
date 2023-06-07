@@ -1,11 +1,11 @@
-import { Listener, Subjects, TicketCreatedEvent } from '@js7ticketing/common';
 import { Message } from 'node-nats-streaming';
+import { Subjects, Listener, TicketCreatedEvent } from '@js7ticketing/common';
 import { Ticket } from '../../models/ticket';
 import { queueGroupName } from './queue-group-name';
 
 export class TicketCreatedListener extends Listener<TicketCreatedEvent> {
   subject: Subjects.TicketCreated = Subjects.TicketCreated;
-  queueGroupName: string = queueGroupName;
+  queueGroupName = queueGroupName;
 
   async onMessage(data: TicketCreatedEvent['data'], msg: Message) {
     const { id, title, price } = data;
