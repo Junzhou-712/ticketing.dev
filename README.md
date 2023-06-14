@@ -11,6 +11,8 @@ Build Locally
 --------
 Prerequisite: [Skaffold](https://skaffold.dev/docs/install/)
 
+clone this repo to local
+
 `git clone https://github.com/Junzhou-712/ticketing.dev`
 
 run `skaffold dev`. This assumes that your ticketing secret had previously been set. If not, you will need to run:
